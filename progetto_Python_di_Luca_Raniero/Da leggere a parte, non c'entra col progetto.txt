@@ -1,0 +1,26 @@
+Ciao Dario, complimenti per il tuo lavoro!!
+Ci tenevo solo a segnalarti alcuni bug della superguida (o almeno, sperando di non sbagliarmi, ti invito a verificare), mi riferisco agli screen di codice del Bot creato da te (temo potrebbe mettere in difficoltà un neofita totale).
+
+Nello specifico:
+
+- alla riga 35 andrei a togliere 'print(currencies)' perchè al run crea davvero un sacco di confusione stampando dati non necessari da visualizzare
+
+
+- alla riga 51, il nuovo if statement fa ancora riferimento alla variabile 'currency' del precedente ciclo for, io l'ho corretto così:
+
+
+        if n > 4:
+            print('Ho trovato più di quattro valute - Creo un nuovo ordine')
+            newOrder = {
+                'datetime': now,
+                'symbol': bestCurrency['symbol'],
+                'enterPrice': bestCurrency['quote']['USD']['percent_change_1h'],
+                'exitPrice': None,
+                'status': 'open'
+            }
+
+
+- alle righe 51 e 64, sostiuirei, rispettivamente, il '4' e '-1' con 'r' e 'z' dato che sono proprio le varibili create per questa funzione (se non ho capito male servono per facilitare un aggiornamento successivo più agile, come è stato fatto nella riga 49)
+
+
+Spero di non aver detto delle cavolate, ti invito comunque a verificare, credo possa essere assolutamente utile a tutti, grazie ancora Dario!
